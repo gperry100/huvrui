@@ -1,0 +1,25 @@
+.hiddenRow {
+    padding: 0 !important;
+}
+
+
+.icon-preview {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    font-size: 15pt;
+}
+.icon-preview span {
+    display: none;
+    position: absolute;
+    background: #777;
+    color: white;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: RobotoDraft;
+    border-radius: 2px;
+    z-index: 10;
+}
+.icon-preview:hover i { color: #4285f4; }
+.icon-preview:hover span { display: block; cursor: text; }

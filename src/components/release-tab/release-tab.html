@@ -1,0 +1,74 @@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">VOD Availability Search</div>
+    <div class="panel-body">
+        <form class="form-inline">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="inputDateFrom">Date From</label>
+                    <input type="text" class="form-control" id="inputDateFrom" data-bind="value: criteriaDateFrom">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputDateTo">Date To</label>
+                    <input type="text" class="form-control" id="inputDateTo" data-bind="value: criteriaDateTo">
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label class="control-label" for="inputReleased">Released ?<br><input type="checkbox" id="inputReleased" data-bind="value: criteriaIsReleased"> </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button data-bind='click: doSearch'>Search</button>
+                </div>
+            </fieldset>
+        </form>
+        <br>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Provider</th>
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Info</th>
+                    <th colspan="2">Avail</th>
+                    <th>Release</th>
+                    <th>Capability</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: tableContents">
+                <tr data-toggle="collapse" data-bind="attr: { 'data-target': '#hiddenLine' + $index() }" class="accordion-toggle">
+                    <td data-bind="text: provider"></td>
+                    <td data-bind="text: type"></td>
+                    <td data-bind="text: title"></td>
+                    <td data-bind="text: info"></td>
+                    <td data-bind="text: afrom"></td>
+                    <td data-bind="text: ato"></td>
+                    <td data-bind="text: rel"></td>
+                    <td>
+                        <div data-bind="foreach: caps">
+                            <div class="icon-preview">
+                                <i data-bind="css: icon"></i>
+                                <span data-bind="text: desc">gulp</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hiddenRow"></td>
+                    <td colspan="7" class="hiddenRow">
+                        <div class="accordian-body collapse" data-bind="attr: { id: 'hiddenLine' + $index() }">
+                            Some hidden stuff<br><br><br><br><br>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8"><br><p data-bind="text: message">x</p></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>  

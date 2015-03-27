@@ -1,0 +1,93 @@
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Assets by provider</div>
+          <div class="panel-body">
+            <canvas id="assetsByProvider" data-bind="chartJS: { chartType: 'Doughnut', chartData: doughnutProvider(), chartOptions: doughnutOptions() }"></canvas>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Assets by type</div>
+          <div class="panel-body">
+            <canvas id="assetsByType" data-bind="chartJS: { chartType: 'Doughnut', chartData: doughnutType(), chartOptions: doughnutOptions() }"></canvas>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Assets by status</div>
+          <div class="panel-body">
+            <canvas id="assetsByStatus" data-bind="chartJS: { chartType: 'Doughnut', chartData: doughnutStatus(), chartOptions: doughnutOptions() }"></canvas>
+          </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">Latest 20 available titles</div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Info</th>
+                <th colspan="2">Avail</th>
+                <th>Released ?</th>
+              </tr>
+            </thead>
+            <tbody data-bind="foreach: newTwenty">
+              <tr>
+                <td data-bind="text: provider"></td>
+                <td data-bind="text: type"></td>
+                <td data-bind="text: title"></td>
+                <td data-bind="text: info"></td>
+                <td data-bind="text: afrom"></td>
+                <td data-bind="text: ato"></td>
+                <td data-bind="text: rel"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">Followed Assets</div>
+        <div class="panel-body">
+          <table class="table table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody data-bind="foreach: followedAssets">
+              <tr>
+                <td data-bind="text: title"></td>
+                <td data-bind="text: status"></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+  </div>
+</div>
+
+<hr>
+
+<button data-bind='click: doSomething'>Click me</button>
+<p data-bind="text: message"></p>
