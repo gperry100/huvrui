@@ -8,6 +8,10 @@ define(['knockout', 'text!./release-tab.html'], function(ko, templateMarkup) {
     this.userID = userID;
   }
 
+  var host = process.env.HUVR_BACKEND || "localhost";
+  var port = process.env.HUVR_BACKEND_PORT || 3000;
+  var baseUrl = "http://" + host + ":" + port;
+
   var criteriaResponse = {};
   var resultsResponse = {};
   var resultsTableArray = [];
@@ -32,7 +36,7 @@ define(['knockout', 'text!./release-tab.html'], function(ko, templateMarkup) {
       self.message('Search in progress...');
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:3000/release/avail',
+        url: baseUrl + '/release/avail',
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(new availabilityCriteriaRequest( self.criteriaDateFrom(), self.criteriaDateTo(), self.criteriaIsReleased(), 'lowema'))
@@ -59,7 +63,7 @@ define(['knockout', 'text!./release-tab.html'], function(ko, templateMarkup) {
         self.message('Getting results.');
         $.ajax({
           type: 'GET',
-          url: 'http://localhost:3000/release/availResult',
+          url: baseUrl + '/release/availResult',
           contentType: "application/json",
           dataType: "html",
           data: { pageFrom: 0, pageTo: 50, userID : criteriaResponse.userID } 
