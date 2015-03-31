@@ -8,8 +8,8 @@ define(['knockout', 'text!./release-tab.html'], function(ko, templateMarkup) {
     this.userID = userID;
   }
 
-  var host = process.env.HUVR_BACKEND || "localhost";
-  var port = process.env.HUVR_BACKEND_PORT || 3000;
+  var host = "localhost";
+  var port = 3000;
   var baseUrl = "http://" + host + ":" + port;
 
   var criteriaResponse = {};
