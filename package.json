@@ -1,6 +1,6 @@
 {
   "name": "huvr-frontend",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "devDependencies": {
     "gulp": "~3.8.8",
     "gulp-util": "latest",
@@ -8,7 +8,7 @@
     "gulp-concat": "^2.2.0",
     "gulp-clean": "^0.2.4",
     "event-stream": "~3.1.0",
-    "gulp-replace": "^0.2.0",
+"gulp-replace": "^0.2.0",
     "gulp-uglify": "^0.2.1",
     "gulp-html-replace": "^1.0.0",
     "deeply": "~0.1.0",
